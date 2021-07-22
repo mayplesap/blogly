@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} Tag Details {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <h1 class="col-12 mb-3">{{ tag.name }}</h1>
+</div>
+<div class="row mb-3">
+    <ul>
+        {% for post in posts %}
+        <li><a href="/posts/{{ post.id }}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="row text-left">
+    <div class="col-12">
+        <form>
+            <button 
+                formaction="/tags/{{ tag.id }}/edit" 
+                formmethod="GET" 
+                class="btn btn-info btn-lg">
+                Edit
+            </button>
+            <button 
+                formaction="/tags/{{ tag.id }}/delete" 
+                formmethod="POST" 
+                class="btn btn-secondary btn-lg">
+                Delete
+            </button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

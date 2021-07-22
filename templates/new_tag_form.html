@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %} New Tag Form {% endblock %}
+
+{% block content %}
+
+<!-- New Tag Template - Used for testing -->
+
+    <h1 class="text-center">Create a Tag</h1>
+
+    <form action="/tags/new" method="POST">
+        <div class="form-group row">
+            <label class="col-2 col-form-label text-right">Name</label>
+            <div class="col-10">
+                <input name="tag-name" class="form-control" placeholder="Enter a name for the tag">
+            </div>
+        </div>
+
+        <div class="row text-right">
+            <div class="col-6">
+                <a href="/tags" class="btn btn-outline-info btn-lg">
+                    Cancel
+                </a>
+            </div>
+            <div class="row-6">
+                <button class="btn btn-primary btn-lg">
+                    Add
+                </button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

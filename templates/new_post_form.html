@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %} New Post Form {% endblock %}
+
+{% block content %}
+
+<!-- New Post Template - Used for testing -->
+
+    <h1 class="text-center">Add post for {{ user.get_full_name() }}</h1>
+
+    <form action="/users/{{ user.id }}/posts/new" method="POST">
+        <div class="row">
+            <label class="col-form-label text-right">Title</label>
+        </div>
+        <div class="form-group row">
+            <input name="title" class="form-control">
+        </div>
+        <div class="row">
+            <label class="col-form-label text-right">Post Content</label>
+        </div>
+        <div class="form-group row post">
+            <textarea name="post-content" class="form-control"></textarea>
+        </div>
+
+        {% for tag in tags %}
+        <div class="form-check">
+            <input class="form-check-input" name="tag-name" type="checkbox" value="{{ tag.id }}" id="tagCheckBox"> 
+            <label class="form-check-label" for="tagCheckBox">{{ tag.name }}</label>
+        </div>
+        {% endfor %}
+
+        <div class="row text-right">
+            <div class="col-6">
+                <a href="/users/{{ user.id }}" class="btn btn-outline-info btn-lg">
+                    Cancel
+                </a>
+            </div>
+            <div class="row-6">
+                <button class="btn btn-primary btn-lg">
+                    Add
+                </button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} User Listing {% endblock%}
+
+{% block content %}
+
+<!-- User Listing Template - Used in testing. -->
+
+<h1 class="pt-4 mb-3 text-center">Users</h1>
+<ul>
+    {% for user in users %}
+    <li><a href="/users/{{ user.id }}">{{ user.get_full_name() }}</a></li>
+    {% endfor %}
+</ul>
+
+<form action="/users/new">
+    <div class="text-center">
+      <button class="btn btn-primary btn-lg">
+        Add User
+      </button>
+    </div>
+  </form>
+
+{% endblock %}

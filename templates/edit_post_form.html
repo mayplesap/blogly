@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} Edit Post Form {% endblock %}
+
+{% block content %}
+
+<!-- Edit Post Template - Used for testing -->
+
+    <h1 class="text-center">Edit Post</h1>
+
+    <form method="POST">
+        <div class="row">
+            <label class="col-form-label text-right">Title</label>
+        </div>
+        <div class="form-group row">
+            <input name="title" class="form-control" value="{{ post.title }}">
+        </div>
+        <div class="row">
+            <label class="col-form-label text-right">Post Content</label>
+        </div>
+        <div class="form-group row post">
+            <textarea name="post-content" class="form-control">{{ post.content }}</textarea>
+        </div>
+
+        <div class="row text-right">
+            <div class="col-6">
+                <a href="/users/{{ post.user_id }}" class="btn btn-outline-info btn-lg">
+                    Cancel
+                </a>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-primary btn-lg">
+                    Save
+                </button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %} Post Details {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <h1 class="col-12 mb-3">{{ post.title }}</h1>
+</div>
+<div class="row mb-3">
+    <p class="col-12">{{ post.content }}</p>
+    <i class="col-12">By {{ user.get_full_name() }} on {{ post.created_at }}</i>
+</div>
+
+<div class="row mb-4">
+    <div class="col">
+        <b>Tags:</b>
+        {% for tag in tags %}
+        <a href="/tags/{{ tag.id }}" class="btn btn-info btn-sm">{{ tag.name }}</a>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="row text-left">
+    <div class="col-12">
+        <form>
+            <a href="/users/{{ user.id }}" class="btn btn-outline-info btn-lg">
+                Cancel
+            </a>
+            <button 
+                formaction="/posts/{{ post.id }}/edit" 
+                formmethod="GET" 
+                class="btn btn-info btn-lg">
+                Edit
+            </button>
+            <button 
+                formaction="/posts/{{ post.id }}/delete" 
+                formmethod="POST" 
+                class="btn btn-secondary btn-lg">
+                Delete
+            </button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %} Edit User Form {% endblock %}
+
+{% block content %}
+
+<!-- Edit User Template - Used for testing -->
+
+    <h1 class="text-center">Edit A User</h1>
+
+    <form method="POST">
+        <div class="row">
+            <label class="col-form-label text-right">First Name</label>
+        </div>
+        <div class="form-group row">
+            <input name="first-name" class="form-control" value="{{ user.first_name }}">
+        </div>
+        <div class="row">
+            <label class="col-form-label text-right">Last Name</label>
+        </div>
+        <div class="form-group row">
+            <input name="last-name" class="form-control" value="{{ user.last_name }}">
+        </div>
+        <div class="row">
+            <label class="col-form-label text-right">Image URL</label>
+        </div>
+        <div class="form-group row">
+            <input name="image-url" class="form-control" type="url" value="{{ user.image_url }}">
+        </div>
+
+        <div class="row text-right">
+            <div class="col-6">
+                <a href="/users/{{ user.id }}" class="btn btn-outline-info btn-lg">
+                    Cancel
+                </a>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-info btn-lg">
+                    Save
+                </button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
